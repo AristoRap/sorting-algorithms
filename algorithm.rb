@@ -1,0 +1,20 @@
+def bubble_sort(range)
+  # This method accepts a range as argument
+  # It returns a sorted array in a descending order
+  num_array = range.to_a.shuffle
+
+  swap = true
+  until swap == false
+    swap = false
+    sorted_array = num_array.each_with_index do |num, indx|
+      next if indx == num_array.length - 1
+      # The <=> returns:
+      # -1 if left < right | 0 if left == right | 1 if left > right
+      if (num_array[indx + 1] <=> num_array[indx]) == 1
+        num_array[indx], num_array[indx + 1] = num_array[indx + 1], num_array[indx]
+        swap = true
+      end
+    end
+  end
+  return sorted_array
+end
