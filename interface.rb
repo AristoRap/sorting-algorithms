@@ -22,22 +22,19 @@ until option == 1 || option == 2 || option == 'exit'
     puts "1\n.\n.\n."
     number = gets.chomp.to_i
     array = (1..number).to_a
-    puts 'Here is the random list of numbers generated:'
-    p array
-    value = array
-
   elsif option == 2
     puts 'Enter a max number of random numbers to add (max. 10000):'
     number = gets.chomp.to_i
     array = []
     number.times { array << rand(100_00) }
-    puts 'Here is the random list of numbers generated:'
-    p array
-    value = array
   else
     puts "That's not a choice - Is it?\n Try again (or type 'exit' to cancel):"
   end
 end
+
+value = array.shuffle
+puts 'Here is the random list of numbers generated:'
+p value
 
 puts 'Oh, by the way - Do you want to sort in ascending or descending order?'
 puts "Type 'asc' or 'desc'"
@@ -59,6 +56,6 @@ until order == 'asc' || order == 'desc' || order == 'exit'
 end
 
 puts '---------------------'
-puts "aaaand here is the list of numbers sorted in #{order_description} order:"
+puts "aaaand here is the list of numbers sorted in #{order_description.downcase} order:"
 sorted_arr = bubble_sort_desc(value)
 p order_description == 'Ascending' ? sorted_arr.reverse : sorted_arr

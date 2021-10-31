@@ -1,8 +1,6 @@
-def bubble_sort_desc(value)
+def bubble_sort_desc(num_array)
   # This method accepts a range as argument
   # It returns a sorted array in a descending order
-  num_array = value.shuffle
-
   swap = true
   until swap == false
     swap = false
