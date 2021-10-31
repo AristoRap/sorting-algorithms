@@ -1,4 +1,4 @@
-require_relative 'algorithms/all_algorithms'
+require_relative 'algorithms/sorting_algorithms'
 require_relative 'helpers'
 
 puts '-----Bubble Sort-----'

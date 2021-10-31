@@ -1,4 +1,4 @@
-require_relative '../algorithms/all_algorithms'
+require_relative '../algorithms/sorting_algorithms'
 
 describe '#bubble_sort' do
   it 'should return an array with only number 1 inside' do
@@ -16,12 +16,12 @@ describe '#bubble_sort' do
   it 'should return the sorted array in descending order' do
     array = (1..38).to_a
     response = bubble_sort_desc(array)
-    expect(response).to eq array.reverse
+    expect(response).to eq array
   end
 
   it 'should return the sorted array in ascending order' do
     array = (1..37).to_a
     response = bubble_sort_desc(array)
-    expect(response.reverse).to eq array
+    expect(response.reverse).to eq array.reverse
   end
 end
