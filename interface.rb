@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'algorithms/sorting_algorithms'
 require_relative 'helpers'
 
@@ -20,7 +22,7 @@ until valid_option?(option) || option == 'exit'
   option = gets.chomp
 end
 
-return exit_interface if option == 'exit'
+abort(exit_interface) if option == 'exit'
 
 value = choose_option(option.to_i)
 value = value.shuffle
@@ -36,10 +38,10 @@ until valid_order?(order) || order == 'exit'
   order = gets.chomp
 end
 
-return exit_interface if order == 'exit'
+abort(exit_interface) if order == 'exit'
 
-order_description = choose_order(order)
+order_short = choose_order(order)
 puts '---------------------'
-timer { bubble_sort_desc(value) }
-puts "Here is the list of numbers sorted in #{order_description} order:"
-p order_description == 'ascending' ? bubble_sort_desc(value).reverse : bubble_sort_desc(value)
+timer { SortingAlgorithm.bubble_sort(value, order) }
+puts "Here is the list of numbers sorted in #{order_short} order:"
+p order_short == 'ascending' ? SortingAlgorithm.bubble_sort(value, 'asc') : SortingAlgorithm.bubble_sort(value, 'desc')

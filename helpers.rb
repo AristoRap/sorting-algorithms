@@ -10,7 +10,7 @@ end
 
 def exit_interface
   puts ''
-  puts '---Exit Successful---'
+  '---Exit Successful---'
 end
 
 def valid_option?(option)
@@ -23,18 +23,26 @@ def valid_order?(order)
   orders.include?(order)
 end
 
+def option_one
+  print 'Enter a max number to define the range (max. 10000): 1...'
+  number = gets.chomp.to_i
+  (1..number).to_a
+end
+
+def option_two
+  puts 'Enter a max number of random numbers to add (max. 10000):'
+  number = gets.chomp.to_i
+  array = []
+  number.times { array << rand(100_00) }
+  array
+end
+
 def choose_option(option)
   case option
   when 1
-    puts 'Enter a max number to define the range (max. 10000):'
-    puts "1\n.\n.\n."
-    number = gets.chomp.to_i
-    array = (1..number).to_a
+    array = option_one
   when 2
-    puts 'Enter a max number of random numbers to add (max. 10000):'
-    number = gets.chomp.to_i
-    array = []
-    number.times { array << rand(100_00) }
+    array = option_two
   else
     puts "That's not a choice - Is it?\nTry again (or type 'exit' to cancel):"
   end
