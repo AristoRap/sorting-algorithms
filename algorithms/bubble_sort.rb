@@ -6,8 +6,9 @@ def bubble_sort_desc(value)
   swap = true
   until swap == false
     swap = false
-    sorted_array = num_array.each_with_index do |num, indx|
+    sorted_array = num_array.each_with_index do |_num, indx|
       next if indx == num_array.length - 1
+
       # The <=> returns:
       # -1 if left < right | 0 if left == right | 1 if left > right
       if (num_array[indx + 1] <=> num_array[indx]) == 1
@@ -16,5 +17,5 @@ def bubble_sort_desc(value)
       end
     end
   end
-  return sorted_array
+  sorted_array
 end

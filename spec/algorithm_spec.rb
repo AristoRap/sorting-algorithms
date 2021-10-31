@@ -1,4 +1,4 @@
-require_relative '../algorithm'
+require_relative '../algorithms/all_algorithms'
 
 describe '#bubble_sort' do
   it 'should return an array with only number 1 inside' do

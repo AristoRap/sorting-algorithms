@@ -1,4 +1,4 @@
-require_relative 'algorithm'
+require_relative 'algorithms/all_algorithms'
 require_relative 'helpers'
 
 puts '-----Bubble Sort-----'
@@ -15,7 +15,7 @@ option = nil
 
 until option == 1 || option == 2 || option == 'exit'
   option = gets.chomp.to_i
-  return "-Exit Successful-" if option == 'exit'
+  return '-Exit Successful-' if option == 'exit'
 
   if option == 1
     puts 'Enter a max number to define the range (max. 10000):'
@@ -30,7 +30,7 @@ until option == 1 || option == 2 || option == 'exit'
     puts 'Enter a max number of random numbers to add (max. 10000):'
     number = gets.chomp.to_i
     array = []
-    number.times {array << rand(10000)}
+    number.times { array << rand(100_00) }
     puts 'Here is the random list of numbers generated:'
     p array
     value = array
@@ -45,7 +45,7 @@ puts "Type 'asc' or 'desc'"
 order = nil
 until order == 'asc' || order == 'desc' || order == 'exit'
   order = gets.chomp
-  return "-Exit Successful-" if order == 'exit'
+  return '-Exit Successful-' if order == 'exit'
 
   case order
   when 'asc'
