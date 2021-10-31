@@ -24,6 +24,8 @@ def choose_option(option)
     number = gets.chomp.to_i
     array = []
     number.times { array << rand(100_00) }
+  else
+    puts "That's not a choice - Is it?\nTry again (or type 'exit' to cancel):"
   end
   return array
 end
@@ -31,9 +33,8 @@ end
 def choose_order(order)
   case order
   when 'asc'
-    order_description = 'Ascending'
+    return 'Ascending'
   when 'desc'
-    order_description = 'Descending'
+    return 'Descending'
   end
-  return order_description
 end
