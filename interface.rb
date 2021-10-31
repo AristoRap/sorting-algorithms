@@ -1,6 +1,5 @@
 require_relative 'algorithms/all_algorithms'
 require_relative 'helpers'
-require 'pry-byebug'
 
 puts '-----Bubble Sort-----'
 puts "Option 1: Range of random consecutive numbers - Type '1'"
@@ -41,6 +40,6 @@ return exit_interface if order == 'exit'
 
 order_description = choose_order(order)
 puts '---------------------'
-puts "aaaand here is the list of numbers sorted in #{order_description.downcase} order:"
-sorted_arr = bubble_sort_desc(value)
-p order_description == 'Ascending' ? sorted_arr.reverse : sorted_arr
+timer { bubble_sort_desc(value) }
+puts "Here is the list of numbers sorted in #{order_description} order:"
+p order_description == 'ascending' ? bubble_sort_desc(value).reverse : bubble_sort_desc(value)

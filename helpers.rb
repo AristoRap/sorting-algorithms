@@ -1,3 +1,11 @@
+def timer
+  start_time = Time.now
+  yield
+  end_time = Time.now
+  puts "Time taken to sort: #{(end_time - start_time).round(2)} seconds"
+  puts ''
+end
+
 def exit_interface
   puts ''
   puts '---Exit Successful---'
@@ -33,8 +41,8 @@ end
 def choose_order(order)
   case order
   when 'asc'
-    return 'Ascending'
+    return 'ascending'
   when 'desc'
-    return 'Descending'
+    return 'descending'
   end
 end
