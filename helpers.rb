@@ -4,13 +4,8 @@ def timer
   start_time = Time.now
   yield
   end_time = Time.now
-  puts "Time taken to sort: #{(end_time - start_time).round(2)} seconds"
+  puts "Time taken to sort: #{(end_time - start_time).round(2)} seconds (rounded...)"
   puts ''
-end
-
-def exit_interface
-  puts ''
-  '---Exit Successful---'
 end
 
 def valid_option?(option)
@@ -21,20 +16,6 @@ end
 def valid_order?(order)
   orders = %('asc', 'desc')
   orders.include?(order)
-end
-
-def option_one
-  print 'Enter a max number to define the range (max. 10000): 1...'
-  number = gets.chomp.to_i
-  (1..number).to_a
-end
-
-def option_two
-  puts 'Enter a max number of random numbers to add (max. 10000):'
-  number = gets.chomp.to_i
-  array = []
-  number.times { array << rand(100_00) }
-  array
 end
 
 def choose_option(option)
@@ -56,4 +37,23 @@ def choose_order(order)
   when 'desc'
     'descending'
   end
+end
+
+def option_one
+  print 'Enter a max number to define the range (max. 10000): 1...'
+  number = gets.chomp.to_i
+  (1..number).to_a
+end
+
+def option_two
+  puts 'Enter a max number of random numbers to add (max. 10000):'
+  number = gets.chomp.to_i
+  array = [1]
+  number.times { array << rand(100_00) }
+  array
+end
+
+def exit_interface
+  puts ''
+  '---Exit Successful---'
 end

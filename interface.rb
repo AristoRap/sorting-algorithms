@@ -1,9 +1,22 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 require_relative 'algorithms/sorting_algorithms'
 require_relative 'helpers'
 
-puts '-----Bubble Sort-----'
+puts '-----List of available sorting algorithms-----'
+SortingAlgorithm.algorithms.each_with_index do |algorithm, index|
+  puts algorithm.capitalize.prepend("#0#{index + 1}-").split('_').join(' ')
+end
+puts "Select an algorithm: 1...#{SortingAlgorithm.algorithms.length}"
+algorithm = gets.chomp
+
+until (algorithm.to_i.positive? && algorithm.to_i < SortingAlgorithm.algorithms.length) || algorithm == 'exit'
+  puts 'Nope, that doesn\'t seem right - Try again? (or hit \'exit\' to exit the program)'
+  algorithm = gets.chomp
+end
+abort(exit_interface) if algorithm == 'exit'
+algorithm = algorithm.to_i - 1
+puts "---#{SortingAlgorithm.algorithms[algorithm]}---"
 puts "Option 1: Range of random consecutive numbers - Type '1'"
 puts 'Enter the max number of consecutive numbers you would like to randomize
 as input for the sort'
@@ -26,8 +39,8 @@ abort(exit_interface) if option == 'exit'
 
 value = choose_option(option.to_i)
 value = value.shuffle
-puts 'Here is the random list of numbers generated:'
-p value
+puts "Here is the generated random list of #{value.size} numbers:"
+puts value.join(', ')
 
 puts 'How do you want to sort? In ascending or descending order?'
 puts "Type 'asc' or 'desc'"
@@ -42,6 +55,11 @@ abort(exit_interface) if order == 'exit'
 
 order_short = choose_order(order)
 puts '---------------------'
-timer { SortingAlgorithm.bubble_sort(value, order) }
-puts "Here is the list of numbers sorted in #{order_short} order:"
-p order_short == 'ascending' ? SortingAlgorithm.bubble_sort(value, 'asc') : SortingAlgorithm.bubble_sort(value, 'desc')
+algorithm = SortingAlgorithm.algorithms[algorithm]
+timer { SortingAlgorithm.send(algorithm.to_sym, value, order) }
+puts "Here is the list of #{value.size} random numbers sorted in #{order_short} order:"
+if order_short == 'ascending'
+  puts SortingAlgorithm.send(algorithm.to_sym, value, 'asc').join(', ')
+else
+  puts SortingAlgorithm.send(algorithm.to_sym, value, 'desc').join(', ')
+end

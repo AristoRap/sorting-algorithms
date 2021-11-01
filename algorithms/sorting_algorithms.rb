@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 require_relative 'bubble_sort'
 
@@ -11,5 +11,9 @@ class SortingAlgorithm
     else
       bubble_sort_desc(array)
     end
+  end
+
+  def self.algorithms
+    %w[bubble_sort quick_sort]
   end
 end
