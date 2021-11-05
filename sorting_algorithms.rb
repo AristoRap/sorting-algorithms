@@ -1,6 +1,7 @@
 # frozen_string_literal: false
 
-require_relative 'bubble_sort'
+# Repository
+require_relative 'algorithms/bubble_sort'
 
 # Class wrapper for various implemented sorting algirithms.
 class SortingAlgorithm
@@ -14,6 +15,6 @@ class SortingAlgorithm
   end
 
   def self.algorithms
-    %w[bubble_sort quick_sort]
+    %w[bubble_sort]
   end
 end

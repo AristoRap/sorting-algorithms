@@ -3,20 +3,15 @@
 require_relative 'algorithms/sorting_algorithms'
 require_relative 'helpers'
 
-puts '-----List of available sorting algorithms-----'
-SortingAlgorithm.algorithms.each_with_index do |algorithm, index|
-  puts algorithm.capitalize.prepend("#0#{index + 1}-").split('_').join(' ')
-end
-puts "Select an algorithm: 1...#{SortingAlgorithm.algorithms.length}"
-algorithm = gets.chomp
+# puts '-----List of available sorting algorithms-----'
+# SortingAlgorithm.algorithms.each_with_index do |algorithm, index|
+#   puts algorithm.capitalize.prepend("#0#{index + 1}-").split('_').join(' ')
+# end
+# puts "Select an algorithm: 1...#{SortingAlgorithm.algorithms.length}"
+# algo_index = gets.chomp
 
-until (algorithm.to_i.positive? && algorithm.to_i < SortingAlgorithm.algorithms.length) || algorithm == 'exit'
-  puts 'Nope, that doesn\'t seem right - Try again? (or hit \'exit\' to exit the program)'
-  algorithm = gets.chomp
-end
-abort(exit_interface) if algorithm == 'exit'
-algorithm = algorithm.to_i - 1
-puts "---#{SortingAlgorithm.algorithms[algorithm]}---"
+abort(exit_interface) if algo_index == 'exit'
+puts "---#{SortingAlgorithm.algorithms[algo_index]}---"
 puts "Option 1: Range of random consecutive numbers - Type '1'"
 puts 'Enter the max number of consecutive numbers you would like to randomize
 as input for the sort'
@@ -55,7 +50,7 @@ abort(exit_interface) if order == 'exit'
 
 order_short = choose_order(order)
 puts '---------------------'
-algorithm = SortingAlgorithm.algorithms[algorithm]
+algorithm = SortingAlgorithm.algorithms[algo_index]
 timer { SortingAlgorithm.send(algorithm.to_sym, value, order) }
 puts "Here is the list of #{value.size} random numbers sorted in #{order_short} order:"
 if order_short == 'ascending'
