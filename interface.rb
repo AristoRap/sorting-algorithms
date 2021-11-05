@@ -12,17 +12,9 @@ require_relative 'helpers'
 
 abort(exit_interface) if algo_index == 'exit'
 puts "---#{SortingAlgorithm.algorithms[algo_index]}---"
-puts "Option 1: Range of random consecutive numbers - Type '1'"
-puts 'Enter the max number of consecutive numbers you would like to randomize
-as input for the sort'
-puts 'For example: If you indicate 50,
-your input will be all numbers from 1 to 50 in a random order'
-puts '---------------------'
-puts "Option 2: Range of random numbers - Type '2'"
 puts 'Enter the max number of random numbers you would like to provide
-as input for the sort'
+as input for the sort or, type \'exit\' to exit the program'
 puts '---------------------'
-puts "Exit: Type 'exit' to exit the program"
 option = gets.chomp
 
 until valid_option?(option) || option == 'exit'

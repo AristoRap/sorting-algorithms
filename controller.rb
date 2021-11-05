@@ -11,4 +11,9 @@ class Controller
   def list
     @view.print_list_of_algos(@algorithms)
   end
+
+  def sort
+    list
+    @view.ask_user_for_algo_index(@algorithms.size)
+  end
 end
