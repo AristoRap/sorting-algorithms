@@ -37,10 +37,10 @@ class Router
   def display_tasks
     puts ""
     puts "What do you want to do next?"
-    puts "1 - List of sorting algorithms"
-    puts "2 - Save post for later"
-    puts "3 - Read post"
-    puts "4 - Mark post as read"
+    puts "1 - List available sorting algorithms"
+    # puts "2 - Save post for later"
+    # puts "3 - Read post"
+    # puts "4 - Mark post as read"
     puts "5 - Exit"
   end
 end
